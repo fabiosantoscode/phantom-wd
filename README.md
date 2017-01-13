@@ -12,6 +12,7 @@ var phantom = require("phantom-wd");
 var browserPromise = phantom({
     debug: false       // boolean, console.log PhantomJS output
     port:  8910        // number, which port PhantomJS should listen on
+    phantomjsBinary: 'phantomjs'  // string, what is the name or full path of the phantomjs binary
 });
 ```
 

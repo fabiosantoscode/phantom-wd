@@ -10,9 +10,10 @@ var SearchStream = require("./search-stream");
 module.exports = function phantom(config) {
     config = config || {};
     config.port = config.port ? parseInt(config.port, 10) : 8910;
+    config.phantomjsBinary = config.phantomjsBinary || 'phantomjs';
     var started = Q.defer();
 
-    var phantomProc = spawn("phantomjs", ["--webdriver=127.0.0.1:" + config.port], {
+    var phantomProc = spawn(config.phantomjsBinary, ["--webdriver=127.0.0.1:" + config.port], {
         stdio: ['ignore', 'pipe', config.debug ? process.stderr : 'ignore']
     });
 
